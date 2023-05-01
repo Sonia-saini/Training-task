@@ -1,0 +1,16 @@
+{
+  "course": [
+  
+    {
+      "course_name": "java",
+      "date": 20122023,
+      "instructor": "sonia",
+      "min_employees": 10,
+      "max_employees": 50,
+      "course_id": "OFFERING-java-sonia"
+    }
+  ],
+  "course_registration": [],
+  "Cancel registration": [],
+  "Course allotment": []
+}
