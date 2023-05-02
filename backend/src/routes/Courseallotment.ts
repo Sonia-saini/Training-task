@@ -81,13 +81,22 @@ CourseAllotment.post("/allot/:course_id",(req:any,res:any)=>{
               });
         }
         else {
-            parse.Course_allotment=parse.course_registration.filter((el)=>el.course_id===courseiid&&{...el,status:"ACCEPTED"}).sort((a,b)=>a.registration_id-b.registration_id);
+            parse.Course_allotment=parse.course_registration.filter((el)=>el.course_id===courseiid).sort((a,b)=>a.registration_id-b.registration_id);
+           let x=parse.Course_allotment.map((el:any)=>{if(el.course_id===courseiid){
+                return {
+                    ...el,
+                    status:"Accepted"
+                }}
+                else{
+                return el}
+            });
+            console.log(x)
             fs2.writeFileSync("./data.json", `${JSON.stringify(parse)}`);  
-          res.status(400).send({
+          res.status(200).send({
             "status": 200,
             "message": "successfully allotted course to registered employees", 
             "data": {
-                "success": parse.Course_allotment
+                "success": x
         }
         }
         )  
