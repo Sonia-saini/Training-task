@@ -1,16 +1,22 @@
 {
   "course": [
-  
     {
       "course_name": "java",
-      "date": 20122023,
-      "instructor": "sonia",
+      "instructor_name": "Aniket",
+      "start_date": "20052023",
       "min_employees": 10,
       "max_employees": 50,
-      "course_id": "OFFERING-java-sonia"
+      "course_id": "OFFERING-java-Aniket"
     }
   ],
-  "course_registration": [],
+  "course_registration": [
+    {
+      "course_id": "OFFERING-java-Aniket",
+      "employee_name": "sonia",
+      "email": "soniasaini67730@gmail.com"
+    }
+    
+  ],
   "Cancel registration": [],
   "Course allotment": []
 }
