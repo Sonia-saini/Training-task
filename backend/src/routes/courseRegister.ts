@@ -7,7 +7,7 @@ interface CourseRegistration {
 }
 const fs1 = require("fs");
 courseReg.post("/add/register/:course_id", (req: any, res: any) => {
-  const { courseid } = req.params;
+  const courseid  = req.params.course_id;
 
   const { employee_name, course_id, email }: CourseRegistration = req.body;
   let data = fs1.readFileSync("./data.json", "utf-8");
@@ -22,23 +22,23 @@ courseReg.post("/add/register/:course_id", (req: any, res: any) => {
   let start_day: number;
   let start_month: number;
   let start_year: number;
-  console.log(course_id, "max", total_registered);
+ 
   const date = new Date();
   const current_day = date.getDate();
   const current_month = date.getMonth() + 1;
   const current_year = date.getFullYear();
   let alredyexist:number;
-  if(course_id){
-     alredyexist=parse.course_registration.filter((el)=>el.course_id===course_id&&employee_name===el.employee_name&&el.email===email).length;
+  if(courseid){
+     alredyexist=parse.course_registration.filter((el)=>el.course_id===courseid&&employee_name===el.employee_name&&el.email===email).length;
     total_registered = parse.course_registration.filter(
-        (el) => el.course_id === course_id
+        (el) => el.course_id === courseid
       ).length;
-      max_employees = parse.course.filter((el) => el.course_id === course_id)[0]
+      max_employees = parse.course.filter((el) => el.course_id === courseid)[0]
         .max_employees;
-      min_employees = parse.course.filter((el) => el.course_id === course_id)[0]
+      min_employees = parse.course.filter((el) => el.course_id === courseid)[0]
         .min_employees;
       console.log(total_registered);
-      start_date = parse.course.filter((el) => el.course_id === course_id)[0]
+      start_date = parse.course.filter((el) => el.course_id === courseid)[0]
         .start_date;
       start_day = Number(start_date[0] + start_date[1]);
       start_month = Number(start_date[2] + start_date[3]);
