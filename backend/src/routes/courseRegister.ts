@@ -99,7 +99,7 @@ courseReg.post("/add/register/:course_id", (req: any, res: any) => {
       });
   }
   else {
-    parse.course_registration.push({employee_name,email,course_id});
+    parse.course_registration.push({employee_name,email,course_id, registration_id: `${employee_name}-${course_id}`});
     fs1.writeFileSync("./data.json", `${JSON.stringify(parse)}`);
     res.status(200).send({
       status: 200,

@@ -1,7 +1,7 @@
 const coursereg=require("../src/routes/courseRegister");
 const express=require("express");
 const fs = require("fs");
-
+const coursealot=require("./routes/Courseallotment")
 fs.chmod("data.json", 3000, (err) => {
   if (err) throw err;
   console.log("File permissions changed!");
@@ -16,6 +16,7 @@ app.get("/",(req,res)=>{
 })
 app.use("/",useRoute)
 app.use("/",coursereg)
+app.use("/",coursealot)
 app.listen(3000,()=>{
     console.log("server is running on port 3000")
 })
