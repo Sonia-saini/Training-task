@@ -1,0 +1,12 @@
+#pagination {
+    display: flex;
+    width:fit-content;
+    margin: 30px auto;
+}
+#pagination button {
+    height: fit-content;
+    background-color: transparent;
+    color:rgb(57, 112, 214);
+    font-size: 14px;
+    border-color: rgb(57, 112, 214);
+}

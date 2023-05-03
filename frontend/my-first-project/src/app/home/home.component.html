@@ -1,0 +1,36 @@
+<input placeholder="search here..." (input)="onSearch($event)"/>
+<p>{{search}}</p>
+<table>
+    <thead>
+      <tr>
+        <th><input type="checkbox"></th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users | paginate:{itemsPerPage:limit,currentPage:currentPage,totalItems:count}">
+      <tr *ngIf="search===''||user.name.includes(search)||user.role.includes(search)||user.email.includes(search)"     >
+        <td><input type="checkbox" ></td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <button >Edit</button>
+         
+          <button >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="pagination">
+  <button (click)="onTablepage(1)" >FIRST</button>
+  <pagination-controls previousLabel="PREV"nextLabel="NEXT" (pageChange)="onTablepage($event)" class="paged">
+
+  </pagination-controls>
+  <button (click)="onTablepage((users.length)/limit)">LAST</button>
+</div>
+
+
+  
