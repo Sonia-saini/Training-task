@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit {
   selectedRows: any = [];
   private rowSelectionSubject = new Subject<any>();
   count = 0;
+  email="";
+  name="";
+  role="";
+  id=0;
   search: string = '';
   constructor(private data: UserdataService) {
     this.rowSelectionSubject.subscribe((selectedRows) => {
@@ -102,5 +106,39 @@ alert("Item is successfully deleted")
   onTablepage(event: any) {
     this.currentPage = Math.ceil(event);
     this.users;
+  }
+  displayStyle = "none";
+  
+  openPopup(id:any) {
+this.id=id;
+console.log(this.id)
+    this.displayStyle = "block";
+  }
+  onemail(event:any){
+this.email=event.target.value
+  }
+  onname(event:any){
+this.name=event.target.value
+  }
+  onrole(event:any){
+    this.role=event.target.value
+  }
+  edit(){
+    let update={email:this.email,name:this.name,role:this.role}
+    this.users = this.users.map((el:any) => {
+      if (el.id === this.id) {
+        return {
+          ...el,
+          ...update
+        };
+      }
+      return el;
+    });
+  
+    this.displayStyle = "none";
+
+  }
+  closePopup() {
+    this.displayStyle = "none";
   }
 }
