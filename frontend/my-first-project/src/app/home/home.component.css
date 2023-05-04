@@ -1,12 +1,63 @@
 #pagination {
-    display: flex;
-    width:fit-content;
-    margin: 30px auto;
+  display: flex;
+  width: fit-content;
+  margin: 30px auto;
+  gap: 10px;
 }
 #pagination button {
-    height: fit-content;
-    background-color: transparent;
-    color:rgb(57, 112, 214);
-    font-size: 14px;
-    border-color: rgb(57, 112, 214);
+  height: fit-content;
+  background-color: transparent;
+  color: rgb(57, 112, 214);
+  font-size: 14px;
+  border-color: rgb(57, 112, 214);
 }
+#userlist{
+    font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 10px auto;
+ text-align: center;
+  border: 2px solid rgb(57, 112, 214);;
+}
+#userlist td, #userlist th {
+    
+    /* background-color: rgb(233, 246, 250); */
+    padding: 10px;
+    border-left: 2px solid rgb(57, 112, 214);
+  }
+  
+  #userlist tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #userlist tr:hover { 
+    
+cursor: pointer;}
+#userlist tr td:nth-child(5){
+    width: auto;
+    
+  height: 50px;
+    display: flex;
+    text-align: justify;
+    justify-content: space-evenly;
+
+
+}
+  #userlist th {
+    padding: 12px;
+  text-align: center;
+    background-color:  rgb(57, 112, 214);;
+    color: white;
+
+  }
+  .selected{
+    background-color: rgb(104, 104, 104);
+    color: white;
+  }
+  #search{
+    width: 500px;
+    display: flex;
+    margin: auto;
+    text-align: justify;
+    padding: 7px;
+    border-radius: 15px;
+    border: 2px solid  rgb(57, 112, 214);
+  }
