@@ -5,11 +5,11 @@
   gap: 20px;
   align-self: center;
 }
-#pagination pagination-controls{
-    display: flex;
-    align-items: center;
- 
-    margin-top: 2px;
+#pagination pagination-controls {
+  display: flex;
+  align-items: center;
+
+  margin-top: 2px;
 }
 #pagination button {
   height: fit-content;
@@ -20,53 +20,52 @@
   border-radius: 13px;
   border-color: rgb(57, 112, 214);
 }
-#userlist{
-    font-family: Arial, Helvetica, sans-serif;
+#userlist {
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 90%;
   margin: 10px auto;
- text-align: center;
-  border: 2px solid rgb(57, 112, 214);;
-}
-#userlist td, #userlist th {
-    
-    /* background-color: rgb(233, 246, 250); */
-    padding: 10px;
-    border-left: 2px solid rgb(57, 112, 214);
-  }
-  
-  #userlist tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #userlist tr:hover { 
-    
-cursor: pointer;}
-#userlist tr td:nth-child(5){
-    width: auto;
-    
-  height: 50px;
-    display: flex;
-    text-align: justify;
-    justify-content: space-evenly;
-
-
-}
-  #userlist th {
-    padding: 12px;
   text-align: center;
-    background-color:  rgb(57, 112, 214);;
-    color: white;
+  border: 2px solid rgb(57, 112, 214);
+}
+#userlist td,
+#userlist th {
+  /* background-color: rgb(233, 246, 250); */
+  padding: 10px;
+  border-left: 2px solid rgb(57, 112, 214);
+}
 
-  }
-  .selected{
-    background-color: rgb(104, 104, 104);
-    color: white;
-  }
-  #search{
-    width: 500px;
-    display: flex;
-    margin: auto;
-    text-align: justify;
-    padding: 7px;
-    border-radius: 15px;
-    border: 2px solid  rgb(57, 112, 214);
-  }
+#userlist tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#userlist tr:hover {
+  cursor: pointer;
+}
+#userlist tr td:nth-child(5) {
+  width: auto;
+
+  height: 50px;
+  display: flex;
+  text-align: justify;
+  justify-content: space-evenly;
+}
+#userlist th {
+  padding: 12px;
+  text-align: center;
+  background-color: rgb(57, 112, 214);
+  color: white;
+}
+.selected {
+  background-color: rgb(104, 104, 104);
+  color: white;
+}
+#search {
+  width: 500px;
+  display: flex;
+  margin: auto;
+  text-align: justify;
+  padding: 7px;
+  border-radius: 15px;
+  border: 2px solid rgb(57, 112, 214);
+}

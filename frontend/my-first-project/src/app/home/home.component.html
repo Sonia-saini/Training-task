@@ -3,7 +3,13 @@
 <table id="userlist">
   <thead>
     <tr>
-      <th><input type="checkbox" (change)="toggleAllRowsSelection()"  [checked]="selectedRows.length===limit" /></th>
+      <th>
+        <input
+          type="checkbox"
+          (change)="toggleAllRowsSelection()"
+          [checked]="selectedRows.length === limit"
+        />
+      </th>
       <th>Name</th>
       <th>Email</th>
       <th>Role</th>
@@ -22,34 +28,70 @@
       let i = index
     "
   >
-    <tr
-    [ngClass]="{ selected: selectedRows.includes(user) }"  
-    >
-      <td ><input type="checkbox" [checked]="selectedRows.includes(user)" 
-      (click)="toggleRowSelection(user)" /></td>
+    <tr [ngClass]="{ selected: selectedRows.includes(user) }">
+      <td>
+        <input
+          type="checkbox"
+          [checked]="selectedRows.includes(user)"
+          (click)="toggleRowSelection(user)"
+        />
+      </td>
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.role }}</td>
       <td>
-      
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"   (click)="openPopup(user.id)">
-          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-pencil-square"
+          viewBox="0 0 16 16"
+          (click)="openPopup(user.id)"
+        >
+          <path
+            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+          />
         </svg>
-   
-       
-         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" (click)="deletebutton(user)">
-          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-          <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-trash"
+          viewBox="0 0 16 16"
+          (click)="deletebutton(user)"
+        >
+          <path
+            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
+          />
+          <path
+            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
+          />
         </svg>
-        
       </td>
     </tr>
   </tbody>
 </table>
 
 <div id="pagination">
-  <button *ngIf="selectedRows.length > 0" (click)="deleteSelectedRows()" style="color: white; background-color: rgb(247, 96, 96); border: none; border-radius: 10px; justify-self: left; padding: 10px;">
+  <button
+    *ngIf="selectedRows.length > 0"
+    (click)="deleteSelectedRows()"
+    style="
+      color: white;
+      background-color: rgb(247, 96, 96);
+      border: none;
+      border-radius: 10px;
+      justify-self: left;
+      padding: 10px;
+    "
+  >
     DELETED SELECTED
   </button>
   <button (click)="onTablepage(1)">FIRST</button>
@@ -66,7 +108,8 @@
   class="modal"
   tabindex="-1"
   role="dialog"
-  [ngStyle]="{'display':displayStyle}">
+  [ngStyle]="{ display: displayStyle }"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -74,25 +117,38 @@
       </div>
       <div class="modal-body">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" (change)="onemail($event)" >
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            (change)="onemail($event)"
+          />
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingPassword" placeholder="NAME" (change)="onname($event)">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="NAME"
+            (change)="onname($event)"
+          />
           <label for="floatingPassword">Username</label>
         </div>
-        <select class="form-select" aria-label="Default select example" (change)="onrole($event)">
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          (change)="onrole($event)"
+        >
           <option selected>SELETE ROLE</option>
           <option value="member">MEMBER</option>
           <option value="admin">ADMIN</option>
-         
         </select>
-  
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" (click)="edit()">Confirm</button>
-        <button type="button" class="btn btn-danger" 
-                (click)="closePopup()">
+        <button type="button" class="btn btn-danger" (click)="closePopup()">
           Close
         </button>
       </div>

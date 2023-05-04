@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
   selectedRows: any = [];
   private rowSelectionSubject = new Subject<any>();
   count = 0;
-  email="";
-  name="";
-  role="";
-  id=0;
+  email = '';
+  name = '';
+  role = '';
+  id = 0;
   search: string = '';
   constructor(private data: UserdataService) {
     this.rowSelectionSubject.subscribe((selectedRows) => {
@@ -80,23 +80,23 @@ export class HomeComponent implements OnInit {
     }
     this.rowSelectionSubject.next(this.selectedRows);
   }
-deletebutton(x:any){
-this.users=this.users.filter((el:any)=>el.id!==x.id);
-alert("Item is successfully deleted")
-}
+  deletebutton(x: any) {
+    this.users = this.users.filter((el: any) => el.id !== x.id);
+    alert('Item is successfully deleted');
+  }
   deleteSelectedRows() {
     const displayedRows = this.users.slice(
       this.currentPage - 1,
       this.currentPage * this.limit
-      );
-      console.log(displayedRows, this.selectedRows);
-      this.users = this.users.filter(
-        (el: any) => !this.selectedRows.includes(el)
-        );
-        this.selectedRows = this.selectedRows.filter(
-          (el: any) => !displayedRows.includes(el)
-          );
-          alert("Select Item is successfully deleted")
+    );
+    console.log(displayedRows, this.selectedRows);
+    this.users = this.users.filter(
+      (el: any) => !this.selectedRows.includes(el)
+    );
+    this.selectedRows = this.selectedRows.filter(
+      (el: any) => !displayedRows.includes(el)
+    );
+    alert('Select Item is successfully deleted');
   }
 
   ngOnInit() {
@@ -107,38 +107,37 @@ alert("Item is successfully deleted")
     this.currentPage = Math.ceil(event);
     this.users;
   }
-  displayStyle = "none";
-  
-  openPopup(id:any) {
-this.id=id;
-console.log(this.id)
-    this.displayStyle = "block";
+  displayStyle = 'none';
+
+  openPopup(id: any) {
+    this.id = id;
+    console.log(this.id);
+    this.displayStyle = 'block';
   }
-  onemail(event:any){
-this.email=event.target.value
+  onemail(event: any) {
+    this.email = event.target.value;
   }
-  onname(event:any){
-this.name=event.target.value
+  onname(event: any) {
+    this.name = event.target.value;
   }
-  onrole(event:any){
-    this.role=event.target.value
+  onrole(event: any) {
+    this.role = event.target.value;
   }
-  edit(){
-    let update={email:this.email,name:this.name,role:this.role}
-    this.users = this.users.map((el:any) => {
+  edit() {
+    let update = { email: this.email, name: this.name, role: this.role };
+    this.users = this.users.map((el: any) => {
       if (el.id === this.id) {
         return {
           ...el,
-          ...update
+          ...update,
         };
       }
       return el;
     });
-  
-    this.displayStyle = "none";
 
+    this.displayStyle = 'none';
   }
   closePopup() {
-    this.displayStyle = "none";
+    this.displayStyle = 'none';
   }
 }
