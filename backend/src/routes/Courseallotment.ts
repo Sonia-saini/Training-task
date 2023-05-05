@@ -41,6 +41,7 @@ CourseAllotment.post("/allot/:course_id", (req: any, res: any) => {
   if (
     current_year > start_year ||
     current_month>start_month||
+    current_year===start_year&&
     current_month === start_month &&
     current_day >= start_day
   ) {
