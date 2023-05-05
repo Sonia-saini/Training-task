@@ -38,13 +38,12 @@ courseReg.post("/add/register/:course_id", (req: any, res: any) => {
     total_registered = parse.course_registration.filter(
       (el) => el.course_id === courseid
     ).length;
-    max_employees = parse.course.filter((el) => el.course_id === courseid)[0]
-      .max_employees;
-    min_employees = parse.course.filter((el) => el.course_id === courseid)[0]
-      .min_employees;
+    let course = parse.course.filter((el) => el.course_id === courseid)[0];
+
+    max_employees = course.max_employees;
+    min_employees = course.min_employees;
     console.log(total_registered);
-    start_date = parse.course.filter((el) => el.course_id === courseid)[0]
-      .start_date;
+    start_date = course.start_date;
     start_day = Number(start_date[0] + start_date[1]);
     start_month = Number(start_date[2] + start_date[3]);
     start_year = Number(
@@ -59,10 +58,10 @@ courseReg.post("/add/register/:course_id", (req: any, res: any) => {
     });
   } else if (
     current_year > start_year ||
-    current_month>start_month||
-    current_year===start_year&&
-    current_month === start_month &&
-    current_day >= start_day
+    current_month > start_month ||
+    (current_year === start_year &&
+      current_month === start_month &&
+      current_day >= start_day)
   ) {
     if (min_employees > total_registered) {
       res.status(400).send({
