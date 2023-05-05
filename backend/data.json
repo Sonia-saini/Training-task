@@ -1,6 +1,37 @@
 {
-  "course": [],
-  "course_registration": [],
-  "Course_allotment": [],
+  "course": [
+    {
+      "course_name": "java",
+      "instructor_name": "aditya",
+      "start_date": "05052023",
+      "min_employees": 5,
+      "max_employees": 10,
+      "course_id": "OFFERING-java-aditya"
+    },
+    {
+      "course_name": "js",
+      "instructor_name": "aditya",
+      "start_date": "07052023",
+      "min_employees": 5,
+      "max_employees": 10,
+      "course_id": "OFFERING-js-aditya"
+    }
+  ],
+  "course_registration": [
+    {
+      "employee_name": "soni",
+      "email": "soni@gmail.com",
+      "course_id": "OFFERING-js-aditya",
+      "registration_id": "soni-OFFERING-js-aditya"
+    }
+  ],
+  "Course_allotment": [
+    {
+      "employee_name": "soni",
+      "email": "soni@gmail.com",
+      "course_id": "OFFERING-js-aditya",
+      "registration_id": "soni-OFFERING-js-aditya"
+    }
+  ],
   "course_cancel": []
 }

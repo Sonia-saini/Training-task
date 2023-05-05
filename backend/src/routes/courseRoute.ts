@@ -1,5 +1,5 @@
 const expres = require("express");
-
+const courseModel = require("../models/courseSchema");
 interface CourseOffering {
   course_name: string;
   instructor_name: string;
@@ -11,7 +11,7 @@ interface CourseOffering {
 const fss = require("fs");
 
 let useRouter = expres.Router();
-useRouter.post("/add/courseOffering", (req: any, res: any) => {
+useRouter.post("/add/courseOffering", async (req: any, res: any) => {
   const {
     course_name,
     instructor_name,
@@ -20,8 +20,6 @@ useRouter.post("/add/courseOffering", (req: any, res: any) => {
     max_employees,
   }: CourseOffering = req.body;
 
-  let data = fss.readFileSync("./data.json", "utf-8");
-
   if (
     course_name &&
     instructor_name &&
@@ -29,13 +27,11 @@ useRouter.post("/add/courseOffering", (req: any, res: any) => {
     min_employees &&
     max_employees
   ) {
-    let parse = JSON.parse(data);
-    parse.course.push({
+    let courses = new courseModel({
       ...req.body,
       course_id: `OFFERING-${course_name}-${instructor_name}`,
     });
-    fss.writeFileSync("./data.json", `${JSON.stringify(parse)}`);
-
+    await courses.save();
     res.status(200).json({
       status: 200,
       data: {
