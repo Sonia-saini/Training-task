@@ -38,12 +38,12 @@ export class HomeComponent implements OnInit {
     if (event.target.value.length !== 0) {
       this.users = this.users.filter((el: any) => {
         if (
-          el.name.toLowerCase().includes(this.search.toLowerCase()) ||
-          el.email.toLowerCase().includes(this.search.toLowerCase()) ||
-          el.role.toLowerCase().includes(this.search.toLowerCase())
+          el.name.toLowerCase().includes(this.search.toLowerCase().trim()) ||
+          el.email.toLowerCase().includes(this.search.toLowerCase().trim()) ||
+          el.role.toLowerCase().includes(this.search.toLowerCase().trim())
         ) {
           console.log(
-            el.role.toLowerCase().includes(this.search.toLowerCase())
+            el.role.toLowerCase().includes(this.search.toLowerCase().trim())
           );
           return el;
         }
@@ -111,6 +111,10 @@ export class HomeComponent implements OnInit {
 
   openPopup(id: any) {
     this.id = id;
+    let x=this.users.filter((el:any)=>el.id===this.id)[0];
+    this.email=x.email;
+    this.role=x.role;
+    this.name=x.name;
     console.log(this.id);
     this.displayStyle = 'block';
   }

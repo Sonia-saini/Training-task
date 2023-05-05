@@ -1,5 +1,6 @@
-<input placeholder="search here..." (input)="onSearch($event)" id="search" />
-
+<div>
+  <input placeholder="search here..." (input)="onSearch($event)" id="search" />
+</div>
 <table id="userlist">
   <thead>
     <tr>
@@ -121,6 +122,7 @@
             type="email"
             class="form-control"
             id="floatingInput"
+            value="email"
             placeholder="name@example.com"
             (change)="onemail($event)"
           />
@@ -132,6 +134,7 @@
             class="form-control"
             id="floatingPassword"
             placeholder="NAME"
+            (value)="name"
             (change)="onname($event)"
           />
           <label for="floatingPassword">Username</label>
@@ -140,6 +143,7 @@
           class="form-select"
           aria-label="Default select example"
           (change)="onrole($event)"
+          (value)="role"
         >
           <option selected>SELETE ROLE</option>
           <option value="member">MEMBER</option>
